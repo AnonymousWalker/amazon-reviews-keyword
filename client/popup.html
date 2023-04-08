@@ -1,0 +1,75 @@
+<html>
+
+<head>
+  <style>
+    body {
+      min-width: 300px;
+      width: fit-content;
+      min-height: 100px;
+    }
+
+    pre {
+      white-space: pre-line;
+    }
+
+    .container {
+      display: grid;
+      grid-gap: 6px;
+      grid-template-columns: 9fr 1fr;
+      margin: 10px 5px;
+      background-color: #fff;
+      color: #444;
+    }
+
+
+    .box {
+      border: 1px solid lightsteelblue;
+      color: #303030;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 1.3em;
+    }
+
+    .up-review {
+      background-color: #9feb9f;
+    }
+
+    .down-review {
+      background-color: rgb(255 161 174);
+    }
+
+    .up-score {
+      text-align: center;
+      color: #039503;
+    }
+
+    .down-score {
+      text-align: center;
+      color: crimson;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      grid-column-start: 1;
+      grid-column-end: -1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box header"><span>Review Keyword</span><span>Score</span></div>
+
+    <!-- <div class="box up-review">Review</div>
+    <div class="box">0.5</div>
+    <div class="box up-review">Review</div>
+    <div class="box">0.5</div>
+    <div class="box down-review">Review</div>
+    <div class="box">0.5</div> -->
+
+  </div>
+  <script src="client.js"></script>
+</body>
+
+</html>
