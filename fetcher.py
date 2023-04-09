@@ -44,6 +44,3 @@ def get_reviews(asin, page=1):
         reviews.append(obj['review'].replace("\"", ""))
     
     return reviews
-
-
-query('')
