@@ -161,3 +161,4 @@ cython_debug/
 
 virtualenv/
 out/
+api_data/
