@@ -20,7 +20,7 @@ def query(asin, page=1):
         headers=headers, 
         params=querystring
     )
-    print(response.text)
+
     with open(build_json_path(asin,page), "w") as f:
         f.write(response.text)
 
@@ -31,11 +31,11 @@ def get_reviews(asin, page=1):
     json_file = build_json_path(asin, page)
     already_downloaded = os.path.exists(json_file)
     if already_downloaded:
-        print("Cache hit for asin ", asin)
+        print("== Cache hit for asin ", asin)
         with open(json_file, 'r', encoding="utf8", errors='ignore') as f:
             data = f.read()
     else:
-        print("Fetching API for asin ", asin)
+        print("== Fetching API for asin ", asin)
         data = query(asin)
     
     res_obj = json.loads(data)

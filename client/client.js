@@ -8,14 +8,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
         var activeTab = tabs[0];
         const url = activeTab.url
         const matches = url.match(asin_regex)  
-        const asin = (matches != null) ? matches[0].replace('/', '') : null;
+        let asin = (matches != null) ? matches[0].replace('/', '') : null;
 
-        if (asin == null) asin = 'B08P3QVFMK';
+        if (asin == null) {
+            return;
+        }
 
         fetchData(`http://127.0.0.1:5000/reviews/${asin}`)
             .then(data => {
                 const container = document.querySelector(".container")
-
+                if (data.length > 0) {
+                    document.querySelector("#spinner").style.display = 'none'
+                }
                 sortedList = Array.from(data).sort(sortBySentiment)
                 console.log(sortedList)
                 
