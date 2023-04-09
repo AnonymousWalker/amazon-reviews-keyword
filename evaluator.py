@@ -24,7 +24,7 @@ rake = Rake(
 def evaluate(review: str):
     # Extract keywords with sentiment
     sentiment_keywords = []
-    review = review.replace('\'', "")
+    # review = review.replace('\'', "")
     review = review.replace('\"', "")
     review = re.sub('\.\.+', '.', review)
     review = re.sub('\.(?!\s|\d|$)', '. ', review)
