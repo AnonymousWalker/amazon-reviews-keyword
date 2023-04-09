@@ -21,7 +21,7 @@ def query(asin, page=1):
         params=querystring
     )
 
-    with open(build_json_path(asin,page), "w") as f:
+    with open(build_json_path(asin,page), "w",encoding="utf8", errors='ignore') as f:
         f.write(response.text)
 
     return response.text
