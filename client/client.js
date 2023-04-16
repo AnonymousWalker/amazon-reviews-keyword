@@ -11,7 +11,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
         let asin = (matches != null) ? matches[0].replace('/', '') : null;
 
         if (asin == null) {
-            return;
+            asin = 'B0B4RPF5GS';
+            // return;
         }
 
         fetchData(`http://127.0.0.1:5000/reviews/${asin}`)
@@ -46,23 +47,23 @@ function render(review, container) {
     const sentiment = review['sentiment']
     const sentence = review['sentence']
 
-    const textRow = document.createElement("div")
-    textRow.textContent = keyword
-    textRow.classList.add("box")
-    textRow.setAttribute("title", sentence)
+    const textCell = document.getElementById("row-template").cloneNode(true);
+    textCell.classList.remove("hidden")
+    textCell.textContent = keyword
+    textCell.setAttribute("title", sentence)
 
-    const scoreNode = document.createElement("div")
-    scoreNode.textContent = sentiment
-    scoreNode.classList.add("box")
+    const scoreCell = document.createElement("div")
+    scoreCell.textContent = sentiment
+    scoreCell.classList.add("box")
 
     if (parseFloat(sentiment) > 0) {
-        textRow.classList.add("up-review")
-        scoreNode.classList.add("up-score")
+        textCell.classList.add("up-review")
+        scoreCell.classList.add("up-score")
     } else {
-        textRow.classList.add("down-review")
-        scoreNode.classList.add("down-score")
+        textCell.classList.add("down-review")
+        scoreCell.classList.add("down-score")
     }
 
-    container.appendChild(textRow)
-    container.appendChild(scoreNode)
+    container.appendChild(textCell)
+    container.appendChild(scoreCell)
 }
