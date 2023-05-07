@@ -50,7 +50,7 @@ def evaluate(review: str):
     
     return sorted_list # list of {keyword, score, sentiment, sentence}
 
-def evaluate_reviews(reviews: list[str]):
+def evaluate_reviews(reviews):
     all_results = []
     for text in reviews:
         result = evaluate(text)

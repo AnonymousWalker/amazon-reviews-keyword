@@ -11,8 +11,8 @@ window.addEventListener("DOMContentLoaded", (event) => {
         let asin = (matches != null) ? matches[0].replace('/', '') : null;
 
         if (asin == null) {
-            asin = 'B0B4RPF5GS';
-            // return;
+            // asin = 'B0B4RPF5GS';
+            return;
         }
 
         fetchData(`http://127.0.0.1:5000/reviews/${asin}`)
